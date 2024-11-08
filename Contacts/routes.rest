@@ -1,5 +1,14 @@
-for testing the getAll function
+# local Host
+# for testing the user endpoint, grabs all data from users db
+GET http://localhost:3000/users
+
+# for testing the user id enpoint, grabs one user from an id parameter
+GET http://localhost:3000/users/672d6d5c55b45325e6609c63
+
+
+# render site
+# for testing the user endpoint, grabs all data from users db
 GET https://project1-6yzb.onrender.com/users
 
-##for testing the getSingle function
+# for testing the user id enpoint, grabs one user from an id parameter
 GET https://project1-6yzb.onrender.com/users/672d6d5c55b45325e6609c63
