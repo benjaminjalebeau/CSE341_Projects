@@ -1,0 +1,5 @@
+for testing the getAll function
+GET https://project1-6yzb.onrender.com/users
+
+##for testing the getSingle function
+GET https://project1-6yzb.onrender.com/users/672d6d5c55b45325e6609c63
