@@ -1,9 +1,38 @@
 # local Host
-# for testing the user endpoint, grabs all data from users db
+### for testing the user endpoint, grabs all data from users db
 GET http://localhost:3000/users
 
-# for testing the user id enpoint, grabs one user from an id parameter
+### for testing the user id enpoint, grabs one user from an id parameter
 GET http://localhost:3000/users/672d6d5c55b45325e6609c63
+
+
+
+###  create user post route
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "tester",
+    "lastName": "test",
+    "email": "test@tester.com",
+    "favoriteColor": "yellow",
+    "birthday": "01/01/2001"
+}
+
+###  update user post route
+PUT http://localhost:3000/users/673662df980695dc9df69090
+content-type: application/json
+
+{
+    "firstName": "testerNew",
+    "lastName": "testNew",
+    "email": "testNew@tester.com",
+    "favoriteColor": "black",
+    "birthday": "01/01/2002"
+}
+
+### delete user delete route
+DELETE http://localhost:3000/users/673660e3927d3f49ffef84e4
 
 
 # render site

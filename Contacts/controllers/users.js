@@ -2,6 +2,7 @@ const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getSingle = async (req, res) => {
+    //#swagger.tags=['Users']
     const userId = ObjectId.createFromHexString(req.params.id);
     const result = await mongodb.getDatabase().db('project1').collection('users').find({ _id: userId });
     result.toArray().then((users) => {
@@ -12,6 +13,7 @@ const getSingle = async (req, res) => {
 };
 
 const getAll= async (req, res) => {
+    //#swagger.tags=['Users']
     const result = await mongodb.getDatabase().db('project1').collection('users').find();
     result.toArray().then((users) => {
         res.setHeader('Content-Type', 'application/json');
@@ -19,8 +21,61 @@ const getAll= async (req, res) => {
     });
 };
 
+const createUser = async (req, res) => {
+    //#swagger.tags=['Users']
+    const user = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    console.log(user);
+    const response = await mongodb.getDatabase().db('project1').collection('users').insertOne(user);
+    if (response.acknowledged) {
+        res.status(204).send();
+
+    } else {
+        res.status(500).json(response.error || 'Something happened while adding the user');
+    }
+};
+
+const updateUser = async (req, res) => {
+    //#swagger.tags=['Users']
+    const userId = ObjectId.createFromHexString(req.params.id);
+    const user = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    const response = await mongodb.getDatabase().db('project1').collection('users').replaceOne({ _id: userId }, user);
+    if (response.modifiedCount > 0) {
+        res.status(204).send();
+
+    } else {
+        res.status(500).json(response.error || 'Something happened while updating the user');
+    }
+};
+
+const deleteUser = async (req, res) => {
+    //#swagger.tags=['Users']
+    const userId = ObjectId.createFromHexString(req.params.id);
+    const response = await mongodb.getDatabase().db('project1').collection('users').deleteOne({ _id: userId });
+    if (response.deletedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Something happened while deleting the user');
+    }
+};
+
+
 module.exports = {
     getSingle,
-    getAll
+    getAll,
+    createUser,
+    updateUser,
+    deleteUser
 }
 
