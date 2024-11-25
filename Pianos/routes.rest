@@ -1,0 +1,78 @@
+# local Host
+# Customers Routes
+### for testing the customers endpoint, grabs all data from customers collection
+GET http://localhost:3000/customers
+
+### for testing the customer id enpoint, grabs one customer from an id parameter
+GET http://localhost:3000/customers/6742ab00b40fc48e7ebf18fd
+
+###  create customer post route
+POST http://localhost:3000/customers HTTP/1.1
+content-type: application/json
+
+{
+    "fName": "Ben",
+    "lName": "LeBeau",
+    "address": "123 Fake Lane",
+    "city": "FakeTown",
+    "pianoModel": "Baldwin R",
+    "lastAppointment": "",
+    "nextAppointment": "12/25/2024"
+}
+
+###  update user post route
+PUT http://localhost:3000/customers/6742ab00b40fc48e7ebf18fd
+content-type: application/json
+
+{
+    "fName": "update",
+    "lName": "update",
+    "address": "123 update Lane",
+    "city": "updateTown",
+    "pianoModel": "Baldwin update",
+    "lastAppointment": "12/25/2024",
+    "nextAppointment": "1/1/2025"
+}
+
+### delete user delete route --- Make sure you put customer id into url
+DELETE http://localhost:3000/customers/6742ab00b40fc48e7ebf18fd
+
+
+
+
+
+
+# RepairOrder Routes
+### for testing the repairOrder endpoint, grabs all data from repairOrder collection
+GET http://localhost:3000/repairOrder
+
+### for testing the repairOrder id enpoint, grabs one repairOrder from an id parameter
+GET http://localhost:3000/repairOrder/67426e2bb6dab406e7c0c7d8
+
+
+###  create repairOrder post route
+POST http://localhost:3000/repairOrder HTTP/1.1
+content-type: application/json
+
+{
+    "customer_id": "67426c57b6dab406e7c0c7d6",
+    "quote_cost": "10",
+    "actual_cost": "100",
+    "repair_description": "Keys are sticking",
+    "completed": false
+}
+
+###  update repairOrder post route --- Make sure you put repairOrder id into url
+PUT http://localhost:3000/repairOrder/6742ab9fd0d671cb7cc94bb2
+content-type: application/json
+
+{
+    "customer_id": "67426c57b6dab406e7c0c7d6",
+    "quote_cost": "10",
+    "actual_cost": "10000",
+    "repair_description": "Updated",
+    "completed": true
+}
+
+### delete repairOrder delete route --- Make sure you put repairOrder id into url
+DELETE http://localhost:3000/repairOrder/6744ffa3c0c467acf03822c4
