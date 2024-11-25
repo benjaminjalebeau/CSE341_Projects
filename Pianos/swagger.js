@@ -5,7 +5,7 @@ const doc = {
         title: 'Pianos Api',
         description: 'Pianos Api'
     },
-    host: 'https://cse341-pianos.onrender.com',
+    host: 'cse341-pianos.onrender.com',
     schemes: ['http', 'https']
 };
 
