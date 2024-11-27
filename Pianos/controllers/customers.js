@@ -81,10 +81,11 @@ const updateCustomer = async (req, res) => {
 };
 
 const deleteCustomer = async (req, res) => {
+    //#swagger.tags=['Customers']
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json("Please enter a valid customer id.")
     }
-    //#swagger.tags=['Customers']
+    
     const customerId =new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db('pianos').collection('customers').deleteOne({ _id: customerId });
     if (response.deletedCount > 0) {
