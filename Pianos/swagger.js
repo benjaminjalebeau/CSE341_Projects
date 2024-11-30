@@ -6,7 +6,7 @@ const doc = {
         description: 'Pianos Api'
     },
     host: 'cse341-pianos.onrender.com',
-    schemes: ['http', 'https']
+    schemes: ['https', 'http']
 };
 
 const outputFile = './swagger.json';
