@@ -8,8 +8,8 @@
   "host": "cse341-pianos.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
-    "https"
+    "https",
+    "http"
   ],
   "paths": {
     "/": {
