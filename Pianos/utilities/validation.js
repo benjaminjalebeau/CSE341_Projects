@@ -46,14 +46,14 @@ const customerValidationRules = () => {
       .escape()
       .isDate().isISO8601()
       .optional({checkFalsy: true})
-      .withMessage('Entered date must be this format: MM-DD-YYYY'),
+      .withMessage('Entered date must be this format: YYYY-MM-DD'),
       
     body("nextAppointment")
       .trim()
       .escape()
       .optional({checkFalsy: true})
       .isDate().isISO8601()
-      .withMessage('Entered date must be this format: MM-DD-YYYY'),
+      .withMessage('Entered date must be this format: YYYY-MM-DD'),
   ]
 }
 

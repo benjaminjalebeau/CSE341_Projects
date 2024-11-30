@@ -17,7 +17,7 @@ content-type: application/json
     "city": "FakeTown",
     "pianoModel": "Baldwin R",
     "lastAppointment": "",
-    "nextAppointment": "12/25/2024"
+    "nextAppointment": "2024-12-25"
 }
 
 ###  update user post route
@@ -30,8 +30,8 @@ content-type: application/json
     "address": "123 update Lane",
     "city": "updateTown",
     "pianoModel": "Baldwin update",
-    "lastAppointment": "12/25/2024",
-    "nextAppointment": "1/1/2025"
+    "lastAppointment": "12-25-2024",
+    "nextAppointment": "2025-1-1"
 }
 
 ### delete user delete route --- Make sure you put customer id into url
