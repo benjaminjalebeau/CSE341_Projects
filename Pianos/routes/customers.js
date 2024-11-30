@@ -4,15 +4,15 @@ const util = require("../utilities/index.js")
 const customersController = require('../controllers/customers.js');
 
 
-router.get('/', util.handleErrors(customersController.getAllCustomers));
+router.get('/', customersController.getAllCustomers);
 
-router.get('/:id', util.handleErrors(customersController.getCustomer));
+router.get('/:id', customersController.getCustomer);
 
 router.post(
     '/',
     customerValidationRules(), 
     validate, 
-    util.handleErrors(customersController.addCustomer)
+    customersController.addCustomer
     
 );
 
@@ -20,10 +20,9 @@ router.put(
     '/:id',
     customerValidationRules(), 
     validate, 
-    util.handleErrors(customersController.updateCustomer)
-    
+    customersController.updateCustomer
 );
 
-router.delete('/:id', util.handleErrors(customersController.deleteCustomer));
+router.delete('/:id', customersController.deleteCustomer);
 
 module.exports = router;
