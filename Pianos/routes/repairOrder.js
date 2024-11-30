@@ -3,20 +3,20 @@ const {repairOrderValidationRules, validate} = require('../utilities/validation.
 const util = require("../utilities/index.js")
 const repairOrderController = require('../controllers/repairOrder.js');
 
-router.get('/', util.handleErrors(repairOrderController.getAllRepairOrders));
+router.get('/', repairOrderController.getAllRepairOrders);
 
-router.get('/:id', util.handleErrors(repairOrderController.getRepairOrder));
+router.get('/:id', repairOrderController.getRepairOrder);
 
 router.post('/', 
     repairOrderValidationRules(),
     validate,
-    util.handleErrors(repairOrderController.addRepairOrder));
+    repairOrderController.addRepairOrder);
 
 router.put('/:id',
     repairOrderValidationRules(),
     validate,
-    util.handleErrors(repairOrderController.updateRepairOrder));
+    repairOrderController.updateRepairOrder);
 
-router.delete('/:id', util.handleErrors(repairOrderController.deleteRepairOrder));
+router.delete('/:id', repairOrderController.deleteRepairOrder);
 
 module.exports = router;
